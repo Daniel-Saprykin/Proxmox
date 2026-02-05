@@ -21,7 +21,7 @@ $STD apt-get install -y ca-certificates
 $STD apt-get install -y lsb-base
 $STD apt-get install -y lsb-release
 $STD apt-get install -y gnupg2
-msg_ok "Installed Dependenciess  ssssssssssssssssssddddddddddddddddddaaaaa"
+msg_ok "Installed Dependenciess"
 
 msg_info "Setting up InfluxDB Repository"
 # Создаем папку для ключей, если её нет
@@ -32,7 +32,7 @@ curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xDA61C26A0585
 
 # Добавляем репозиторий с привязкой к скачанному ключу
 echo "deb [signed-by=/etc/apt/keyrings/influxdata-archive_compat.gpg] https://repos.influxdata.com/debian stable main" > /etc/apt/sources.list.d/influxdata.list
-msg_ok "Set up InfluxDB Repositorysadsddddddddddddddddddddddddddddsaaaaaaa"
+msg_ok "Set up InfluxDB Repository"
 
 read -r -p "Which version of InfluxDB to install? (1 or 2) " prompt
 if [[ $prompt == "2" ]]; then
@@ -41,7 +41,7 @@ else
   INFLUX="1"
 fi
 
-msg_info "Installing InfluxDB sddddddddddddddddddddddddddwwwwwwwwww"
+msg_info "Installing InfluxDB"
 $STD apt-get update
 if [[ $INFLUX == "2" ]]; then
   $STD apt-get install -y influxdb2
