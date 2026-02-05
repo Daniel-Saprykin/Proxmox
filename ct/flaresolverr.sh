@@ -4,7 +4,7 @@ source <(curl -s https://raw.githubusercontent.com/Daniel-Saprykin/Proxmox/refs/
 # Author: tteck (tteckster)
 # Co-Author: remz1337
 # License: MIT
-# https://github.com/tteck/Proxmox/raw/main/LICENSE
+# https://github.com/Daniel-Saprykin/Proxmox/raw/main/LICENSE
 
 function header_info {
 clear

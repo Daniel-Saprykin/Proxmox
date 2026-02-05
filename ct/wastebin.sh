@@ -4,7 +4,7 @@ source <(curl -s https://raw.githubusercontent.com/Daniel-Saprykin/Proxmox/refs/
 # Author: tteck
 # Co-Author: MickLesk (Canbiz)
 # License: MIT
-# https://github.com/tteck/Proxmox/raw/main/LICENSE
+# https://github.com/Daniel-Saprykin/Proxmox/raw/main/LICENSE
 # Source: https://github.com/matze/wastebin
 
 
