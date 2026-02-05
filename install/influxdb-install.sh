@@ -32,6 +32,7 @@ curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xDA61C26A0585
 
 # Добавляем репозиторий с привязкой к скачанному ключу
 echo "deb [signed-by=/etc/apt/keyrings/influxdata-archive_compat.gpg] https://repos.influxdata.com/debian stable main" > /etc/apt/sources.list.d/influxdata.list
+msg_ok "add source list"
 msg_ok "Set up InfluxDB Repository"
 
 read -r -p "Which version of InfluxDB to install? (1 or 2) " prompt
