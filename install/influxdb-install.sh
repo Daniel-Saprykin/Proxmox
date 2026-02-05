@@ -24,9 +24,14 @@ $STD apt-get install -y gnupg2
 msg_ok "Installed Dependencies"
 
 msg_info "Setting up InfluxDB Repository"
-# ИСПРАВЛЕНО: Используем curl вместо wget и добавляем флаг --yes для перезаписи
-curl -fsSL https://repos.influxdata.com/influxdata-archive_compat.key | gpg --dearmor -o /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg --yes
-echo "deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg] https://repos.influxdata.com/debian stable main" > /etc/apt/sources.list.d/influxdata.list
+# Создаем папку для ключей, если её нет
+mkdir -p /etc/apt/keyrings
+
+# Скачиваем правильный ключ с сервера ключей (так как на оф. сайте лежит просроченный)
+curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xDA61C26A0585BD3B" | gpg --dearmor -o /etc/apt/keyrings/influxdata-archive_compat.gpg --yes
+
+# Добавляем репозиторий с привязкой к скачанному ключу
+echo "deb [signed-by=/etc/apt/keyrings/influxdata-archive_compat.gpg] https://repos.influxdata.com/debian stable main" > /etc/apt/sources.list.d/influxdata.list
 msg_ok "Set up InfluxDB Repository"
 
 read -r -p "Which version of InfluxDB to install? (1 or 2) " prompt
